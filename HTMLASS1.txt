@@ -1,0 +1,127 @@
+1. Comment the second paragraph element of the following HTML document?
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Page</title>
+</head>
+<body>
+<p>HTML Tutorial</p>
+<!--This Is comment-->
+<p>Python Tutorial</p>
+<p>PHP Tutorial</p>
+</body>
+</html>
+
+2. Represent your residential address on HTML Document.
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Page</title>
+</head>
+  
+<body>
+    Contact number : 7854215652
+    Email : sharma254@gmail.com
+</body>
+</html>
+
+3. Convert your HTML document into music player 🎵
+<!DOCTYPE html>
+<html>
+<body>
+
+<audio controls>
+  <source src="Tu-Aake-Dekhle(PagalWorld).mp3" type="audio/ogg">
+Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>
+
+4. Convert your HTML document into video player 📽
+<!DOCTYPE html>
+<html>
+<body>
+
+<video width="1024" height="600" controls>
+  <source src="King - Tu Aake Dekhle - The Carnival - The Last Ride - Prod. by Shahbeatz - Latest Hit Songs 2020.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+</body>
+</html>
+
+5. Embed Python swap program in html document
+
+6. Create a paragraph summariser, where you can toggle between hide and view
+option.
+
+7. Embed Youtube video URL on html document.
+Youtube Video URL: https://www.youtube.com/watch?v=fOwZpHGnMSk
+<!DOCTYPE html>
+<html>
+<body>
+
+<iframe width="1024" height="600" src="https://www.youtube.com/embed/fOwZpHGnMSk">
+</iframe>
+
+</body>
+</html>
+
+8. Create a registration form for a hackathon, (Include form validation).
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hackathon</title>
+    </head>
+    <body>
+        <p><h2>Registration Form for hackathon</h2></p>
+        <form>
+            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="City Name">
+            <input type="email" placeholder="Email">
+            <input type="number" placeholder="Mobile Number">
+            <button>Submit</button>
+        </form>
+    </body>
+</html>
+
+9. Suppose you just wrote your own book, and you want, that every user who visits your
+website should be able to download your book locally on his/her computer. Create a
+single page website, which lets users to download your book.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CentOS Command</title>
+        
+    </head>
+    <body>
+        <p>Click Below Image To Download Book</p>
+        <a href="./Basic Command in CentOs.docx" download>
+            <img src="./centos1.png" alt="CentOs Logo" width="104" height="142"></a>
+    </body>
+</html>
+
+10. Convert your HTML document into Phone Call Application.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML TO Call Application</title>
+    </head>
+    <body>
+        <p>Create Link to call application click on number to call</p>
+        <a href="tel:+918421582340">+918421582340</a>
+    </body>
+</html>
+
+11. Convert your HTML document into Electronic Mail Application.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML TO Email</title>
+    </head>
+        <body>
+            <a href="mailto:rahulsha.in20@gmail.com?Subject=subject text & body= Message">Send subject text</a>
+        </body>
+</html>
+
