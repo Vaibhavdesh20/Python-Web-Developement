@@ -1,0 +1,150 @@
+import psycopg2
+from getpass import getpass
+    
+
+connection = psycopg2.connect(
+    host = "127.0.0.1",
+             port="5432",
+    database = "postgres",
+    user="postgres",
+    password="1"
+)
+def create_logindb():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    cursor.execute("create table logindb(username text,password text,contactid int,primary key(password),constraint fk_login foreign key(contactid) references contact(contactid));")
+
+#create_logindb()
+
+def login():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    login=str(input("Enter User Name : "))
+    pwd=getpass("Enter Password : ")
+
+    create_db_query="select * from logindb where username=(%s) and password=(%s)"
+    t=(login,pwd)
+    cursor.execute(create_db_query,t)
+    print(f"Succesufully Login {login} ")
+    cursor.close()
+
+def register():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    
+    username= str(input("Enter First Name : "))
+    password= getpass("Enter Password : ")
+    create_db_query="insert into logindb values(%s,%s)"
+    t=(username,password)
+
+    cursor.execute(create_db_query,t)
+    print(f"Welcome {username} you have successfully register ")
+    cursor.close()
+
+
+while True:
+    yes='yes'
+    user_input=input("Do You Want To Login Yes/No : ")
+
+    if user_input==yes:
+        login()
+        break
+    else:
+        user_input1=input("Do You Want To Register yes/no : ")
+
+        if user_input1==yes:
+            register()
+            break
+        else:
+            exit()
+        
+
+
+
+
+def create_table():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    cursor.execute("create table contact(contactid int,FirstName text,LastName text,Email text,PhoneNumber bigint,primary key(contactid));")
+def add_contact():
+    connection.autocommit = True
+    cursor=connection.cursor()
+
+    cont_id= int(input("Enter Contact_id : "))
+    first_name= str(input("Enter First Name : "))
+    last_name= str(input("Enter Last Name : "))
+    Email= str(input("Enter Email ID : "))
+    Phone_number = int(input("Enter Phone Number : "))
+
+    create_db_query="insert into contact values(%s,%s,%s,%s,%s)"
+    t=(cont_id,first_name,last_name,Email,Phone_number)
+
+    cursor.execute(create_db_query,t)
+    print("Successfully Add Countact ")
+    cursor.close()
+
+def view_contact():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    cursor.execute("select * from contact;")
+
+    print(cursor.fetchall())
+    cursor.close()
+
+def view_():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    first_name= str(input("Contact First_Name  : "))
+    create_db_query="select * from contact where firstname=(%s)"
+    t=(first_name,)
+
+    cursor.execute(create_db_query,t)
+    print(cursor.fetchall())
+    cursor.close()
+
+def del_():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    first_name= str(input("Contact First_Name  : "))
+    create_db_query="delete from contact where firstname=(%s)"
+    t=(first_name,)
+    cursor.execute(create_db_query,t)
+    print("The Contact",t,"Sucessfully Delete" )
+    cursor.close()
+
+def update():
+    connection.autocommit = True
+    cursor=connection.cursor()
+    cont_id= int(input("Enter Contact_id : "))
+    first_name= str(input("Enter First Name : "))
+    last_name= str(input("Enter Last Name : "))
+    Email= str(input("Enter Email ID : "))
+    Phone_number = int(input("Enter Phone Number : "))
+
+    create_db_query="update contact set contactid=(%s),firstname=(%s),lastname=(%s),Email=(%s),PhoneNumber=(%s)"
+    t=(cont_id,first_name,last_name,Email,Phone_number)
+
+    cursor.execute(create_db_query,t)
+    print("The Contact",t,"Sucessfully Update" )
+    cursor.close()
+
+print("what do you want to do ?")
+print("[View -a] to view all saved contact ")
+print("[View] to view a specific contact ")
+print("[Add] to add a new contact ")
+print("[Del] to delete a contact ")
+print("[Update] to Update an existing contact ")
+print("[Exit] to Exit the program" )
+
+
+func_dict = {'view -a':view_contact,'view':view_,'add':add_contact,'del':del_,'update':update,'exit':exit}
+
+while True:
+    
+    command = input(">$ ")
+    func_dict[command]()
+    if command=='exit':
+        break
+    else:
+        input("Press Enter to continue ")
+   
